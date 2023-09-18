@@ -1,0 +1,35 @@
+#typing-text {
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: 4px; /* Adjust as needed */
+    position: relative;
+}
+
+#typing-text::after {
+    content: "|"; /* Cursor */
+    animation: blink-caret 0.5s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to {
+        visibility: visible;
+    }
+    50% {
+        visibility: hidden;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+
+
+
+
