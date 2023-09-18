@@ -17,7 +17,41 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="css/adminlte.min.css">
   <style>
-    /* Custom CSS */
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --link-color: #007bff;
+  --header-bg: #007bff;
+  --header-text: white;
+}
+
+.dark-mode {
+  --bg-color: #333;
+  --text-color: #fff;
+  --link-color: #44aaff;
+  --header-bg: #222;
+  --header-text: #44aaff;
+}
+
+.my-card {
+  border: 1px solid var(--text-color);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.my-card-header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+
     .my-card {
       border: 1px solid #ccc;
       border-radius: 10px;
@@ -86,8 +120,9 @@
       background-color: white;
       border-radius: 10px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-      object-fit: contain; /* Keeps the entire image visible within the specified dimensions */
+      object-fit: contain;
     }
+
 
   </style>
 </head>
@@ -97,11 +132,13 @@
   <section class="content">
       <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-          
-          
+
+          <div class="col-9 mt-4">
+            <button id="darkModeToggle" class="btn btn-primary float-right mr-3">Toggle Dark Mode</button>
+          </div>
 
 
-          <div class="col-md-9 mt-4">
+          <div class="col-md-9 ">
             <div class="card my-card">
               <div class="card-header p-2 text-center my-header">
                 <a href="#" class="h3">Welcome to Bryan's Shoe Collection</a>
@@ -174,3 +211,19 @@
 </html>
 
 
+<script>
+const darkModeToggle = document.getElementById("darkModeToggle");
+const body = document.body;
+
+darkModeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+    darkModeToggle.textContent = "Toggle to Light Mode";
+  } else {
+    darkModeToggle.textContent = "Toggle to Dark Mode";
+  }
+});
+
+
+</script>
